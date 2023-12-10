@@ -15,6 +15,7 @@ import VerifyEmail from '../pages/VerifyEmail';
 import Ambulences from '../pages/Ambulences';
 import BloodBank from '../pages/BloodBank';
 import ForgetPassword from '../pages/ForgetPassword';
+import HomeNavigator from './HomeNavigator ';
 
 
 export default function AppNavigator(){
@@ -23,7 +24,7 @@ export default function AppNavigator(){
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name='Spalash' component={Splash} options={{headerShown : false}}/>
-                <Stack.Screen name='Main' component={DrawerNavigator} options={{headerShown : false}}/>
+                <Stack.Screen name='Main' component={HomeNavigator} options={{headerShown : false}}/>
                 <Stack.Screen name='Ambulances' component={Ambulences} />
                 <Stack.Screen name='Blood Bank' component={BloodBank} />
                 <Stack.Screen name='Appointment' component={Appointment} />

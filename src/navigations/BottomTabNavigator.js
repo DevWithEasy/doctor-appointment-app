@@ -33,8 +33,12 @@ export default function BottomTabNavigator(){
             }
         })}>
             <Tab.Screen name='Profile' component={Profile}/>
-            {!user.isDoctor && <Tab.Screen name='Apply Doctor' component={ApplyDoctor}/>}
-            {user.isDoctor && <Tab.Screen name='Dashboard' component={Dashboard}/>}
+            {!user.isDoctor && 
+                <Tab.Screen name='Apply Doctor' component={ApplyDoctor}/>
+            }
+            {user.isDoctor && 
+                <Tab.Screen name='Dashboard' component={Dashboard}/>
+            }
             <Tab.Screen name='Appointments' component={Appointments}/>
             <Tab.Screen name='Notification' component={Notifiaction}/>
         </Tab.Navigator>
