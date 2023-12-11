@@ -67,13 +67,13 @@ export default function DrawerNavigator(){
                 }}
             />}
             
-            {isAuth && <Drawer.Screen name='Accout' component={BottomTabNavigator}
+            {/* {isAuth && <Drawer.Screen name='Account' component={BottomTabNavigator}
                 options={{
                     drawerIcon : ({focused,color,size})=>(
                         <Icon name='person' size={18} color={color}/>
                     )
                 }}
-            />}
+            />} */}
 
             {isAuth && user?.isAdmin && <Drawer.Screen name='Admin' component={Admin}
                 options={{

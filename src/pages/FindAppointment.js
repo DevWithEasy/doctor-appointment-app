@@ -6,12 +6,16 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Doctor from "../components/Doctor";
 import { apiUrl } from '../utils/baseUrl';
 import statusBarHeight from "../utils/statusBarHight";
+import daysOfWeek from "../../assets/days";
+import Header from "../components/Header";
 
 export default function FindAppointment({ navigation }) {
     const toast = useToast()
     const [doctors, setDoctors] = useState([])
     const [specializations, setSpecializations] = useState([])
     const [specialist, setSpecialist] = useState('')
+    const [day, setDay] = useState('')
+
     async function getAllActiveSpecialistDoctors() {
         try {
             const res = await axios.get(`${apiUrl}/doctor/specialist`)
@@ -40,13 +44,14 @@ export default function FindAppointment({ navigation }) {
         getAllActiveSpecialistDoctors()
     }, [])
 
+    console.log(specialist,day)
     return (
         <ScrollView 
-        style={statusBarHeight}
-        className='bg-white'
+        className='bg-white space-y-2'
         >
-            <View className='bg-white p-2 space-y-2 rounded-md'>
-                <View className='border-b border-gray-200 rounded-md'>
+            <Header {...{navigation , text : 'Find Appoinments'}}/>
+            <View className='p-2 space-y-2 rounded-md'>
+                <View className='border-[1px] border-gray-200 rounded-md'>
                     <Picker
                         selectedValue={specialist}
                         onValueChange={(itemValue, itemIndex) =>
@@ -63,8 +68,25 @@ export default function FindAppointment({ navigation }) {
                         }
                     </Picker>
                 </View>
+                <View className='border-[1px] border-gray-200 rounded-md'>
+                    <Picker
+                        selectedValue={day}
+                        onValueChange={(itemValue, itemIndex) =>
+                            setDay(itemValue)
+                        }
+                    >
+                        <Picker.Item label='Select day' value='' />
+                        {
+                            daysOfWeek.map((day, i) => <Picker.Item
+                                key={i}
+                                label={day}
+                                value={day}
+                            />)
+                        }
+                    </Picker>
+                </View>
                 <TouchableOpacity className='p-2 bg-blue-500 rounded-md' onPress={() => getAllActiveSpecialist()}>
-                    <Text className='text-white text-center'>Search</Text>
+                    <Text className='text-white text-lg text-center'>Search</Text>
                 </TouchableOpacity>
             </View>
 

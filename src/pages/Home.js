@@ -9,14 +9,12 @@ export default function Home({ navigation }) {
 
     return (
         <ScrollView
-            style={statusBarHeight}
             className='bg-white space-y-2 flex-1 flex-col'>
             {/* <Hero /> */}
 
             {/* slide carousel */}
             <HomeCarousel {...{ navigation }} />
             
-
             {/* servive section*/}
             <HomeService {...{ navigation }} />
 

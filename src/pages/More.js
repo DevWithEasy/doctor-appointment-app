@@ -1,14 +1,19 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
-import statusBarHeight from '../utils/statusBarHight';
+import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import Header from '../components/Header';
 
-const More = () => {
+const More = ({navigation}) => {
     return (
         <ScrollView
-            style={statusBarHeight}
             className='bg-white'
         >
-            <Text>Hello</Text>
+            <Header {...{navigation, text : 'More'}}/>
+            <TouchableOpacity
+                onPress={()=>navigation.navigate('Profile')}
+            >
+                <Text>Profile</Text>
+            </TouchableOpacity>
+            
         </ScrollView>
     );
 };

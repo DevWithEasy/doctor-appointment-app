@@ -2,10 +2,11 @@ import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import { VStack } from "native-base";
 import { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
+import { StatusBar,ScrollView, View } from "react-native";
 import Doctor from "../components/Doctor";
 import { apiUrl } from "../utils/baseUrl";
 import statusBarHeight from "../utils/statusBarHight";
+import Header from "../components/Header";
 
 
 export default function Doctors({navigation}){
@@ -40,10 +41,11 @@ export default function Doctors({navigation}){
     
     return(
         <ScrollView 
-        style={statusBarHeight}
             className='bg-white space-y-2'
         >
-            <View className='flex-1 justify-end bg-white rounded-md'>
+            <StatusBar backgroundColor='#3b82f6'/>
+            <Header {...{navigation,text: 'Doctors'}}/>
+            <View className='mx-2 border-[1px] border-gray-200 rounded-md'>
                 <Picker
                     selectedValue={specialist}
                     onValueChange={(itemValue, itemIndex) =>
