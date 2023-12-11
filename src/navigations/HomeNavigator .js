@@ -1,15 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Appointments from "../pages/Appointments"
 import Home from "../pages/Home"
-import Notifiaction from "../pages/Notification"
-import Profile from "../pages/Profile"
 import Icon from 'react-native-vector-icons/Ionicons'
-import Dashboard from "../pages/Dashboard"
+
 import { useSelector } from "react-redux"
-import ApplyDoctor from "../pages/ApplyDoctor"
 import Doctors from "../pages/Doctors"
 import FindAppointment from "../pages/FindAppointment"
 import More from "../pages/More"
+import Hospitals from "../pages/Hospitals"
 
 const Tab = createBottomTabNavigator()
 
@@ -46,7 +43,7 @@ export default function HomeNavigator(){
             <Tab.Screen name='Home' component={Home}/>
             <Tab.Screen name='Doctors' component={Doctors}/>
             <Tab.Screen name='Find' component={FindAppointment}/>
-            <Tab.Screen name='Hospitals' component={Notifiaction}/>
+            <Tab.Screen name='Hospitals' component={Hospitals}/>
             <Tab.Screen name='More' component={More}/>
             
         </Tab.Navigator>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ScrollView, View } from "react-native";
 import Doctor from "../components/Doctor";
 import { apiUrl } from "../utils/baseUrl";
+import statusBarHeight from "../utils/statusBarHight";
 
 
 export default function Doctors({navigation}){
@@ -38,7 +39,10 @@ export default function Doctors({navigation}){
     },[navigation])
     
     return(
-        <ScrollView className='bg-gray-200 mx-2 mt-2 space-y-2'>
+        <ScrollView 
+        style={statusBarHeight}
+            className='bg-white space-y-2'
+        >
             <View className='flex-1 justify-end bg-white rounded-md'>
                 <Picker
                     selectedValue={specialist}

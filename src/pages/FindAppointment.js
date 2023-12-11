@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Doctor from "../components/Doctor";
 import { apiUrl } from '../utils/baseUrl';
+import statusBarHeight from "../utils/statusBarHight";
 
 export default function FindAppointment({ navigation }) {
     const toast = useToast()
@@ -40,7 +41,10 @@ export default function FindAppointment({ navigation }) {
     }, [])
 
     return (
-        <ScrollView className='px-4 pt-2 bg-gray-200'>
+        <ScrollView 
+        style={statusBarHeight}
+        className='bg-white'
+        >
             <View className='bg-white p-2 space-y-2 rounded-md'>
                 <View className='border-b border-gray-200 rounded-md'>
                     <Picker
