@@ -7,6 +7,8 @@ const authSlice = createSlice({
         isAuth : false,
         user : {},
         doctor : {},
+        doctors : [],
+        specializations : [],
         random : 0
     },
     reducers : {
@@ -25,11 +27,17 @@ const authSlice = createSlice({
         addDoctor : (state,action)=>{
             state.doctor = action.payload
         },
+        addDoctors : (state,action)=>{
+            state.doctors = action.payload
+        },
+        addSpecializations : (state,action)=>{
+            state.specializations = action.payload
+        },
         refresh : (state,action)=>{
             state.random = action.payload
         },
     }
 })
 
-export const {loading,addAuth,removeAuth,addDoctor,refresh} = authSlice.actions
+export const {loading,addAuth,removeAuth,addDoctor,addDoctors,addSpecializations,refresh} = authSlice.actions
 export default authSlice.reducer
