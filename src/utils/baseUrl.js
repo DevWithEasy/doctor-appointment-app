@@ -1,2 +1,2 @@
-export const apiUrl = 'http://192.168.186.91:8080/api'
-export const baseUrl = 'http://192.168.186.91:8080'
+export const apiUrl = 'http://10.10.10.205:19000/api'
+export const baseUrl = 'http://10.10.10.205:19000'
